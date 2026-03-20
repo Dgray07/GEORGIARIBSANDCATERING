@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Georgia Ribs & Catering — The Sweet Taste of the South</title>
+<meta name="description" content="Georgia Ribs & Catering — Slow-smoked BBQ, homemade sides, and full-service catering. Order ahead or book us for your next event."/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Chivo:ital,wght@0,300;0,400;0,700;1,300&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --char: #1a1209;
+  --char-mid: #251c0f;
+  --char-light: #332810;
+  --ember: #c8500a;
+  --ember-bright: #e8621a;
+  --gold: #d4950a;
+  --gold-light: #f0b82a;
+  --cream: #f5ead8;
+  --cream-dark: #e8d4b0;
+  --smoke: #8a7a6a;
+  --white: #fff;
+  --red: #8b1a1a;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--char);
+  color: var(--cream);
+  font-family: 'Chivo', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--char); }
+::-webkit-scrollbar-thumb { background: var(--ember); border-radius: 3px; }
+
+/* ── GRAIN TEXTURE ── */
+body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw; height: 70px;
+  background: rgba(26,18,9,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(200,80,10,0.2);
+}
+
+.nav-logo {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.nav-logo img {
+  height: 46px; width: auto;
+  filter: drop-shadow(0 0 8px rgba(200,80,10,0.4));
+}
+.nav-logo-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; letter-spacing: 2px;
+  color: var(--cream); line-height: 1.1;
+}
+.nav-logo-text span { display: block; font-size: 11px; color: var(--ember); letter-spacing: 3px; font-family: 'Chivo', sans-serif; font-weight: 400; }
+
+.nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+.nav-links a {
+  color: var(--smoke); text-decoration: none;
+  font-family: 'Chivo', sans-serif; font-weight: 400; font-size: 13px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--cream); }
+
+.nav-order {
+  background: var(--ember); color: var(--white) !important;
+  padding: 9px 22px; border-radius: 2px;
+  font-weight: 700 !important;
+  transition: background 0.2s !important;
+}
+.nav-order:hover { background: var(--ember-bright) !important; }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { width: 24px; height: 2px; background: var(--cream); display: block; }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-left {
+  background: var(--char-mid);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 140px 6vw 80px;
+  position: relative; z-index: 2;
+}
+
+/* Diagonal cut on hero left */
+.hero-left::after {
+  content: '';
+  position: absolute; top: 0; right: -60px; bottom: 0;
+  width: 120px;
+  background: var(--char-mid);
+  transform: skewX(-4deg);
+  z-index: 1;
+}
+
+.hero-tag {
+  font-family: 'Chivo', sans-serif; font-weight: 400;
+  font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--ember);
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 20px;
+  opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards;
+}
+.hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--ember); }
+
+.hero-h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-style: italic;
+  font-size: clamp(52px, 6vw, 88px);
+  line-height: 0.95; color: var(--cream);
+  margin-bottom: 16px;
+  opacity: 0; animation: fadeUp 0.8s 0.35s ease forwards;
+}
+.hero-h1 em { color: var(--ember); font-style: normal; }
+
+.hero-sub {
+  font-size: 16px; line-height: 1.8; color: var(--smoke);
+  max-width: 420px; margin-bottom: 44px;
+  opacity: 0; animation: fadeUp 0.8s 0.5s ease forwards;
+}
+.hero-sub strong { color: var(--cream-dark); font-weight: 400; }
+
+.hero-actions {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp 0.8s 0.65s ease forwards;
+}
+
+.btn-primary {
+  display: inline-block; background: var(--ember);
+  color: var(--white); padding: 15px 36px;
+  font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+  border-radius: 2px; transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--ember-bright); transform: translateY(-2px); }
+
+.btn-outline {
+  display: inline-block;
+  border: 1px solid rgba(200,80,10,0.5); color: var(--ember);
+  padding: 15px 36px;
+  font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+  border-radius: 2px; transition: all 0.2s;
+}
+.btn-outline:hover { background: rgba(200,80,10,0.1); border-color: var(--ember); }
+
+.hero-badge {
+  margin-top: 48px;
+  display: inline-flex; align-items: center; gap: 10px;
+  opacity: 0; animation: fadeUp 0.8s 0.8s ease forwards;
+}
+.hero-badge-icon { font-size: 22px; }
+.hero-badge-text { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--smoke); }
+.hero-badge-text strong { display: block; color: var(--gold-light); font-weight: 700; font-size: 13px; }
+
+/* Hero right — photo collage */
+.hero-right {
+  position: relative; overflow: hidden;
+}
+.hero-photo-main {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
+  filter: brightness(0.75) saturate(1.2);
+}
+.hero-right-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(37,28,15,0.6) 0%, transparent 40%);
+}
+
+/* Floating photo card */
+.hero-card {
+  position: absolute; bottom: 60px; right: 40px;
+  width: 200px; height: 160px;
+  overflow: hidden;
+  border: 3px solid rgba(200,80,10,0.5);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  opacity: 0; animation: fadeUp 0.8s 1s ease forwards;
+}
+.hero-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── SHARED SECTION STYLES ── */
+section { padding: 100px 5vw; }
+
+.section-tag {
+  font-family: 'Chivo', sans-serif; font-weight: 400;
+  font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--ember); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-tag::before { content: ''; width: 28px; height: 1px; background: var(--ember); }
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-size: clamp(36px, 4.5vw, 58px);
+  line-height: 1.05; color: var(--cream); margin-bottom: 16px;
+}
+.section-title em { font-style: italic; color: var(--ember); }
+
+.section-lead { font-size: 16px; line-height: 1.8; color: var(--smoke); max-width: 560px; }
+
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── ABOUT / STORY ── */
+#about {
+  background: var(--char-mid);
+  position: relative; overflow: hidden;
+}
+#about::before {
+  content: 'SMOKE';
+  position: absolute; right: -2%; top: 50%; transform: translateY(-50%);
+  font-family: 'Bebas Neue', sans-serif; font-size: 20vw;
+  color: transparent; -webkit-text-stroke: 1px rgba(200,80,10,0.06);
+  pointer-events: none; user-select: none; line-height: 1;
+}
+
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  position: relative; z-index: 1;
+}
+
+.about-photos {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  position: relative;
+}
+.about-photo {
+  overflow: hidden; position: relative;
+}
+.about-photo img { width: 100%; height: 220px; object-fit: cover; display: block; filter: saturate(1.1); transition: transform 0.5s; }
+.about-photo:hover img { transform: scale(1.04); }
+.about-photo:first-child { grid-column: 1 / -1; }
+.about-photo:first-child img { height: 280px; }
+
+/* Ember accent block */
+.about-accent {
+  background: var(--ember);
+  padding: 20px 24px; margin-top: 8px;
+  display: flex; align-items: center; gap: 14px;
+}
+.about-accent-icon { font-size: 28px; flex-shrink: 0; }
+.about-accent-text { font-size: 14px; line-height: 1.5; color: var(--white); font-weight: 400; }
+.about-accent-text strong { display: block; font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+
+.about-body { font-size: 16px; line-height: 1.9; color: var(--smoke); margin-top: 24px; }
+.about-body p { margin-bottom: 18px; }
+.about-body strong { color: var(--cream); font-weight: 400; }
+
+/* ── MENU ── */
+#menu { background: var(--char); }
+
+.menu-tabs {
+  display: flex; gap: 0; margin-top: 40px; margin-bottom: 48px;
+  border-bottom: 1px solid rgba(200,80,10,0.2); flex-wrap: wrap;
+}
+.menu-tab {
+  font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 13px;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--smoke);
+  padding: 12px 28px; cursor: pointer;
+  border: none; background: none;
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+  transition: all 0.2s;
+}
+.menu-tab:hover { color: var(--cream); }
+.menu-tab.active { color: var(--ember); border-bottom-color: var(--ember); }
+
+.menu-panel { display: none; }
+.menu-panel.active { display: block; }
+
+/* Menu grid — two columns: items left, big photo right */
+.menu-layout {
+  display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: start;
+}
+
+.menu-category { margin-bottom: 44px; }
+.menu-category-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 13px;
+  letter-spacing: 4px; color: var(--ember); margin-bottom: 16px;
+  padding-bottom: 8px; border-bottom: 1px solid rgba(200,80,10,0.2);
+}
+
+.menu-item {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  gap: 20px;
+}
+.menu-item:last-child { border-bottom: none; }
+
+.menu-item-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 18px; color: var(--cream); line-height: 1.2;
+  margin-bottom: 4px;
+}
+.menu-item-desc { font-size: 13px; color: var(--smoke); line-height: 1.5; max-width: 340px; }
+
+/* Menu photo stack */
+.menu-photos { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 8px; }
+.menu-photo { overflow: hidden; }
+.menu-photo img { width: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+.menu-photo:hover img { transform: scale(1.03); }
+.menu-photo:nth-child(1) img { height: 260px; }
+.menu-photo:nth-child(2) img { height: 180px; }
+
+.order-cta-bar {
+  margin-top: 48px; padding: 28px 32px;
+  background: var(--char-mid);
+  border: 1px solid rgba(200,80,10,0.2);
+  border-left: 4px solid var(--ember);
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+}
+.order-cta-text { font-size: 16px; color: var(--cream); }
+.order-cta-text strong { display: block; font-size: 20px; font-family: 'Playfair Display', serif; font-weight: 700; margin-bottom: 4px; }
+.order-cta-text span { font-size: 14px; color: var(--smoke); }
+
+/* ── PHOTO STRIP ── */
+#photostrip {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 280px;
+}
+.strip-photo { overflow: hidden; position: relative; }
+.strip-photo img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.8) saturate(1.2); transition: filter 0.4s, transform 0.4s; }
+.strip-photo:hover img { filter: brightness(1) saturate(1.4); transform: scale(1.05); }
+
+/* ── CATERING ── */
+#catering { background: var(--char-mid); }
+
+.catering-hero {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  margin-bottom: 80px;
+}
+
+.catering-menu-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  margin-top: 56px;
+}
+
+.catering-block {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(200,80,10,0.12);
+  padding: 32px 28px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.catering-block:hover { background: rgba(200,80,10,0.05); border-color: rgba(200,80,10,0.3); }
+
+.catering-block-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 14px;
+  letter-spacing: 3px; color: var(--ember); margin-bottom: 16px;
+  padding-bottom: 10px; border-bottom: 1px solid rgba(200,80,10,0.2);
+}
+
+.catering-item {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); gap: 12px;
+}
+.catering-item:last-child { border-bottom: none; }
+.catering-item-name { font-size: 14px; color: var(--cream-dark); line-height: 1.4; }
+.catering-item-note { font-size: 12px; color: var(--smoke); margin-top: 2px; }
+
+/* Catering form */
+.catering-form-wrap {
+  background: var(--char);
+  border: 1px solid rgba(200,80,10,0.15);
+  padding: 48px; margin-top: 60px;
+  border-top: 3px solid var(--ember);
+}
+
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; font-size: 28px; color: var(--cream);
+  margin-bottom: 8px;
+}
+.form-subtitle { font-size: 14px; color: var(--smoke); margin-bottom: 36px; }
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.form-grid.full { grid-template-columns: 1fr; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+
+label {
+  font-family: 'Chivo', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--smoke);
+}
+input, select, textarea {
+  width: 100%; padding: 13px 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(200,80,10,0.2);
+  color: var(--cream); font-family: 'Chivo', sans-serif; font-size: 14px;
+  border-radius: 2px; outline: none; transition: border-color 0.2s;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--ember); }
+select option { background: var(--char-mid); }
+textarea { resize: vertical; min-height: 120px; }
+
+.form-submit {
+  width: 100%; padding: 15px;
+  background: var(--ember); color: var(--white);
+  font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 14px;
+  letter-spacing: 3px; text-transform: uppercase;
+  border: none; cursor: pointer; border-radius: 2px; margin-top: 8px;
+  transition: background 0.2s;
+}
+.form-submit:hover { background: var(--ember-bright); }
+
+/* ── ORDER ONLINE ── */
+#order {
+  background: var(--ember);
+  padding: 80px 5vw;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+#order::before {
+  content: 'ORDER';
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  font-family: 'Bebas Neue', sans-serif; font-size: 25vw;
+  color: rgba(0,0,0,0.08); white-space: nowrap;
+  pointer-events: none; user-select: none; line-height: 1;
+}
+
+.order-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-style: italic;
+  font-size: clamp(40px, 6vw, 72px);
+  color: var(--white); line-height: 1; margin-bottom: 16px;
+  position: relative; z-index: 1;
+}
+.order-sub { font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 40px; position: relative; z-index: 1; }
+.order-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+.order-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 36px;
+  font-family: 'Chivo', sans-serif; font-weight: 700; font-size: 14px;
+  letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+  border-radius: 2px; transition: all 0.2s;
+}
+.order-btn-white { background: var(--white); color: var(--ember); }
+.order-btn-white:hover { background: var(--cream); transform: translateY(-2px); }
+.order-btn-outline { border: 2px solid rgba(255,255,255,0.6); color: var(--white); }
+.order-btn-outline:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+.doordash-notice {
+  margin-top: 28px; font-size: 13px; color: rgba(255,255,255,0.6);
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.doordash-badge {
+  background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+}
+
+/* ── CONTACT ── */
+#contact { background: var(--char); }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; }
+.contact-block { margin-bottom: 28px; }
+.contact-label {
+  font-family: 'Chivo', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase; color: var(--ember); margin-bottom: 6px;
+}
+.contact-value { font-size: 16px; color: var(--cream); line-height: 1.6; }
+.contact-value a { color: var(--cream); text-decoration: none; transition: color 0.2s; }
+.contact-value a:hover { color: var(--ember); }
+
+.social-links { display: flex; gap: 14px; margin-top: 8px; }
+.social-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--smoke); text-decoration: none;
+  letter-spacing: 1px; text-transform: uppercase; font-weight: 700;
+  transition: color 0.2s;
+}
+.social-link:hover { color: var(--ember); }
+
+.map-box {
+  background: var(--char-mid);
+  border: 1px solid rgba(200,80,10,0.15);
+  padding: 32px;
+}
+.map-box p { font-size: 15px; color: var(--smoke); line-height: 1.8; margin-bottom: 20px; }
+.truck-photo { width: 100%; height: 220px; object-fit: cover; display: block; margin-bottom: 20px; filter: brightness(0.85) saturate(1.1); }
+
+/* ── FOOTER ── */
+footer {
+  background: #0f0a04;
+  padding: 48px 5vw 28px;
+  border-top: 1px solid rgba(200,80,10,0.15);
+}
+.footer-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 24px; margin-bottom: 32px;
+}
+.footer-logo { display: flex; align-items: center; gap: 12px; }
+.footer-logo img { height: 44px; width: auto; opacity: 0.9; }
+.footer-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--cream); }
+.footer-logo-text span { display: block; font-size: 11px; color: var(--ember); letter-spacing: 3px; font-family: 'Chivo', sans-serif; font-weight: 400; }
+.footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+.footer-links a {
+  font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--smoke); text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--ember); }
+.footer-bottom {
+  text-align: center; font-size: 12px; color: rgba(138,122,106,0.5);
+  border-top: 1px solid rgba(255,255,255,0.04); padding-top: 24px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 960px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column;
+    position: absolute; top: 70px; left: 0; right: 0;
+    background: rgba(26,18,9,0.98); padding: 24px 5vw; gap: 16px;
+    border-bottom: 1px solid rgba(200,80,10,0.2);
+  }
+  #hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-right { height: 50vw; }
+  .hero-left { padding: 120px 5vw 60px; }
+  .hero-card { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .menu-layout { grid-template-columns: 1fr; }
+  .menu-photos { display: none; }
+  #photostrip { grid-template-columns: repeat(3, 1fr); height: 200px; }
+  #photostrip .strip-photo:nth-child(n+4) { display: none; }
+  .catering-hero { grid-template-columns: 1fr; }
+  .catering-menu-grid { grid-template-columns: 1fr; }
+  .catering-form-wrap { padding: 28px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="Georgia Ribs & Catering Logo"/>
+    <div class="nav-logo-text">
+      Georgia Ribs
+      <span>& Catering</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#catering">Catering</a></li>
+    <li><a href="#contact">Find Us</a></li>
+    <li><a href="#order" class="nav-order">Order Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero" style="padding:0;">
+  <div class="hero-left">
+    <div class="hero-tag">The Sweet Taste of the South</div>
+    <h1 class="hero-h1">Slow-Smoked.<br><em>Soul-Deep.</em><br>Southern.</h1>
+    <p class="hero-sub">
+      <strong>Georgia Ribs & Catering</strong> brings real pit BBQ to your table — meats slow-smoked over wood, homemade sides cooked from scratch, and Southern hospitality that makes every bite feel like home.
+    </p>
+    <div class="hero-actions">
+      <a href="#order" class="btn-primary">Order Online</a>
+      <a href="#menu" class="btn-outline">View Menu</a>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-icon">🔥</div>
+      <div class="hero-badge-text">
+        <strong>Catering Available</strong>
+        Events · Parties · Corporate
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="food-smoked-ribs2.png" alt="Slow-smoked Georgia ribs" class="hero-photo-main"/>
+    <div class="hero-right-overlay"></div>
+    <div class="hero-card">
+      <img src="food-rib-dinner.jpg" alt="Rib dinner plate"/>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-photos reveal">
+      <div class="about-photo">
+        <img src="food-ribs-plate.jpg" alt="Full BBQ spread"/>
+      </div>
+      <div class="about-photo">
+        <img src="food-smoker-team.jpg" alt="Georgia Ribs team at the smoker"/>
+      </div>
+      <div class="about-photo">
+        <img src="food-chicken-dinner.png" alt="Fried chicken dinner"/>
+      </div>
+      <div class="about-accent" style="grid-column:1/-1;">
+        <div class="about-accent-icon">🐷</div>
+        <div class="about-accent-text">
+          <strong>Wood-Fired. Every Time.</strong>
+          Every rack of ribs is smoked low and slow over real wood — no shortcuts, no shortcuts ever.
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <div class="section-tag">Our Story</div>
+      <h2 class="section-title">More Than BBQ.<br>It's <em>Family.</em></h2>
+      <div class="about-body">
+        <p>Georgia Ribs & Catering was born from a love of real Southern cooking — the kind that takes all day and fills the whole neighborhood with smoke. We're a family operation with a big custom smoker and even bigger heart.</p>
+        <p>Every dish on our menu comes from <strong>scratch-made recipes</strong> passed down through generations. Our ribs are rubbed, smoked, and sauced in-house. Our sides — mac & cheese, green beans, baked beans, cole slaw — are cooked fresh every day.</p>
+        <p>Whether you're pulling up to our food truck or booking us to feed your entire event, you're getting the same thing: <strong>the sweet taste of the South.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MENU ── -->
+<section id="menu">
+  <div class="reveal">
+    <div class="section-tag">What We're Serving</div>
+    <h2 class="section-title">The <em>Menu</em></h2>
+    <p class="section-lead">All dinners come with your choice of sides. Call ahead to place your order — (616) 928-7395</p>
+  </div>
+
+  <div class="menu-tabs reveal">
+    <button class="menu-tab active" data-tab="mains" onclick="switchMenu('mains', this)">Main Course</button>
+    <button class="menu-tab" data-tab="sides" onclick="switchMenu('sides', this)">Sides</button>
+    <button class="menu-tab" data-tab="drinks" onclick="switchMenu('drinks', this)">Drinks</button>
+    <button class="menu-tab" data-tab="specials" onclick="switchMenu('specials', this)">Specials</button>
+  </div>
+
+  <!-- MAINS -->
+  <div class="menu-panel active reveal" id="tab-mains">
+    <div class="menu-layout">
+      <div>
+        <div class="menu-category">
+          <div class="menu-category-title">Smoked & Grilled</div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Rib Dinner</div>
+              <div class="menu-item-desc">Slow-smoked baby back ribs, fall-off-the-bone tender. Comes with 2 sides & a roll.</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Pulled Pork Sandwich</div>
+              <div class="menu-item-desc">Smoked pulled pork on a brioche bun with house slaw. Served with 1 side.</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Fried Jumbo Wings</div>
+              <div class="menu-item-desc">Golden-fried jumbo wings, tossed in your choice of BBQ or hot & spicy. With 2 sides.</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Fried Catfish Dinner</div>
+              <div class="menu-item-desc">Cornmeal-crusted catfish fillets, golden fried. Served with 2 sides & a roll.</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-category">
+          <div class="menu-category-title">Handheld & Street</div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Burger w/ Fries</div>
+              <div class="menu-item-desc">Fresh-pressed beef burger with lettuce, tomato, cheese, and pickles on a toasted bun.</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Chili Dog w/ Chips</div>
+              <div class="menu-item-desc">All-beef hot dog smothered in house-made chili. Served with chips.</div>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Loaded Nachos</div>
+              <div class="menu-item-desc">Crispy tortilla chips loaded with your choice of meat, cheese, jalapeños, and toppings.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="menu-photos">
+        <div class="menu-photo"><img src="food-smoked-ribs2.png" alt="Smoked ribs"/></div>
+        <div class="menu-photo"><img src="food-burger.png" alt="Burger"/></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDES -->
+  <div class="menu-panel reveal" id="tab-sides">
+    <div class="menu-layout">
+      <div>
+        <div class="menu-category">
+          <div class="menu-category-title">Homemade Sides</div>
+          <div class="menu-item"><div><div class="menu-item-name">Mac & Cheese</div><div class="menu-item-desc">Creamy, baked Southern-style mac & cheese made from scratch.</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Green Beans</div><div class="menu-item-desc">Slow-cooked Southern green beans with smoked meat.</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Baked Beans</div><div class="menu-item-desc">House-made baked beans slow-cooked with brown sugar and smoked pork.</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Cole Slaw</div><div class="menu-item-desc">Creamy homemade slaw, the perfect cool complement to smoked meats.</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Sweet Potatoes</div><div class="menu-item-desc">Glazed sweet potato chunks with butter, brown sugar, and warm spices.</div></div></div>
+        </div>
+        <div class="menu-category">
+          <div class="menu-category-title">Fried Sides</div>
+          <div class="menu-item"><div><div class="menu-item-name">French Fries</div><div class="menu-item-desc">Crispy golden fries, seasoned to perfection.</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chili Cheese Fries</div><div class="menu-item-desc">Fries topped with house chili and melted cheese.</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Chili Fries</div><div class="menu-item-desc">Crispy fries smothered in house-made chili.</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Cheese Fries</div><div class="menu-item-desc">Golden fries covered in warm cheese sauce.</div></div></div>
+        </div>
+      </div>
+      <div class="menu-photos">
+        <div class="menu-photo"><img src="food-sweet-potato.png" alt="Sweet potatoes"/></div>
+        <div class="menu-photo"><img src="food-loaded-fries.jpg" alt="Loaded fries"/></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRINKS -->
+  <div class="menu-panel reveal" id="tab-drinks">
+    <div class="menu-layout">
+      <div>
+        <div class="menu-category">
+          <div class="menu-category-title">Cold Drinks</div>
+          <div class="menu-item"><div><div class="menu-item-name">Pepsi / Cola</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Diet Cola</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Sprite</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Brisk Tea</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Water</div></div></div>
+        </div>
+      </div>
+      <div class="menu-photos">
+        <div class="menu-photo"><img src="food-ribs-plate.jpg" alt="BBQ spread"/></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPECIALS -->
+  <div class="menu-panel reveal" id="tab-specials">
+    <div class="menu-layout">
+      <div>
+        <div class="menu-category">
+          <div class="menu-category-title">Sweet Treats</div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Strawberry Funnel Cake Fries</div>
+              <div class="menu-item-desc">Crispy funnel cake sticks topped with fresh strawberries and whipped cream. A crowd favorite.</div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-category">
+          <div class="menu-category-title">Daily Specials</div>
+          <div class="menu-item"><div><div class="menu-item-name">Follow Us for Daily Specials</div><div class="menu-item-desc">We post daily specials on our social pages. Check back often — the smoker never stops!</div></div></div>
+        </div>
+      </div>
+      <div class="menu-photos">
+        <div class="menu-photo"><img src="food-strawberry-fries.png" alt="Strawberry funnel cake fries"/></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="order-cta-bar reveal">
+    <div class="order-cta-text">
+      <strong>Ready to Order?</strong>
+      <span>Call ahead to guarantee your order — (616) 928-7395</span>
+    </div>
+    <a href="#order" class="btn-primary">Order Online</a>
+  </div>
+</section>
+
+<!-- ── PHOTO STRIP ── -->
+<div id="photostrip">
+  <div class="strip-photo"><img src="food-smoked-ribs2.png" alt="Smoked ribs"/></div>
+  <div class="strip-photo"><img src="food-loaded-fries.jpg" alt="Loaded fries"/></div>
+  <div class="strip-photo"><img src="food-strawberry-fries.png" alt="Strawberry fries"/></div>
+  <div class="strip-photo"><img src="food-chicken-dinner.png" alt="Chicken dinner"/></div>
+  <div class="strip-photo"><img src="food-rib-dinner.jpg" alt="Rib dinner"/></div>
+</div>
+
+<!-- ── CATERING ── -->
+<section id="catering">
+  <div class="catering-hero">
+    <div class="reveal">
+      <div class="section-tag">Feed the Crowd</div>
+      <h2 class="section-title">Full-Service<br><em>Catering</em></h2>
+      <div class="about-body">
+        <p>From backyard cookouts to corporate events, Georgia Ribs & Catering brings the whole operation to you — smoker, sides, and service. We handle events of all sizes.</p>
+        <p><strong>Call to discuss your event:</strong> (616) 928-7395</p>
+        <p style="font-size:13px;margin-top:8px;">Payment accepted via Cash App: <strong style="color:var(--ember);">$KatrinaSeldon31</strong></p>
+      </div>
+      <div style="margin-top:32px;">
+        <a href="#catering-form" class="btn-primary">Request Catering</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <img src="food-smoker-team.jpg" alt="Georgia Ribs catering team" style="width:100%;height:380px;object-fit:cover;display:block;filter:brightness(0.85) saturate(1.1);"/>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="section-tag">Catering Menu</div>
+    <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:32px;color:var(--cream);margin-bottom:8px;">Party Trays & <em style="color:var(--ember);">Packs</em></h3>
+    <p class="section-lead">All pricing is per-person or per-tray. Contact us for custom quotes on larger events.</p>
+  </div>
+
+  <div class="catering-menu-grid reveal">
+    <div class="catering-block">
+      <div class="catering-block-title">Party Trays</div>
+      <div class="catering-item">
+        <div>
+          <div class="catering-item-name">Chicken — 50+ pieces</div>
+          <div class="catering-item-note">Feeds approximately 12 guests</div>
+        </div>
+      </div>
+      <div class="catering-item">
+        <div>
+          <div class="catering-item-name">Pan of Wing Dings (50pc)</div>
+          <div class="catering-item-note">BBQ or Hot & Spicy — feeds 12</div>
+        </div>
+      </div>
+      <div class="catering-item">
+        <div>
+          <div class="catering-item-name">3 Slab Pan of Ribs</div>
+          <div class="catering-item-note">Slow-smoked, ready to serve</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="catering-block">
+      <div class="catering-block-title">Party Packs</div>
+      <div class="catering-item">
+        <div>
+          <div class="catering-item-name">50 pc Chicken</div>
+          <div class="catering-item-note">2 Pans Fries · 1 Pan Slaw</div>
+        </div>
+      </div>
+      <div class="catering-item">
+        <div>
+          <div class="catering-item-name">100 pc Chicken</div>
+          <div class="catering-item-note">4 Pans Fries · 2 Pans Slaw</div>
+        </div>
+      </div>
+      <div class="catering-item">
+        <div>
+          <div class="catering-item-name">150 pc Chicken</div>
+          <div class="catering-item-note">6 Pans Fries · 3 Pans Slaw</div>
+        </div>
+      </div>
+      <div class="catering-item">
+        <div>
+          <div class="catering-item-name">200 pc Chicken</div>
+          <div class="catering-item-note">8 Pans Fries · 4 Pans Slaw</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="catering-block">
+      <div class="catering-block-title">Catering Sides (Pan)</div>
+      <div class="catering-item"><div class="catering-item-name">Mac & Cheese</div></div>
+      <div class="catering-item"><div class="catering-item-name">Green Beans</div></div>
+      <div class="catering-item"><div class="catering-item-name">Baked Beans</div></div>
+      <div class="catering-item"><div class="catering-item-name">French Fries</div></div>
+      <div class="catering-item"><div class="catering-item-name">Cole Slaw</div></div>
+    </div>
+
+    <div class="catering-block" style="background:rgba(200,80,10,0.06);border-color:rgba(200,80,10,0.3);">
+      <div class="catering-block-title">Custom Events</div>
+      <p style="font-size:14px;color:var(--smoke);line-height:1.7;margin-bottom:16px;">Need something not listed? We can accommodate custom event sizes, themed menus, and on-site setup. Fill out the request form and we'll work out the details.</p>
+      <a href="#catering-form" class="btn-primary" style="font-size:12px;padding:11px 24px;">Get a Custom Quote</a>
+    </div>
+  </div>
+
+  <!-- CATERING REQUEST FORM -->
+  <div class="catering-form-wrap reveal" id="catering-form">
+    <div class="form-title">Catering Request</div>
+    <div class="form-subtitle">Fill out the form below and we'll reach out within 24 hours to confirm availability and pricing.</div>
+    <div class="form-grid">
+      <div class="form-field"><label>First Name</label><input type="text" id="cFirst" placeholder="First name"/></div>
+      <div class="form-field"><label>Last Name</label><input type="text" id="cLast" placeholder="Last name"/></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-field"><label>Phone Number</label><input type="tel" id="cPhone" placeholder="(000) 000-0000"/></div>
+      <div class="form-field"><label>Email Address</label><input type="email" id="cEmail" placeholder="your@email.com"/></div>
+    </div>
+    <div class="form-grid">
+      <div class="form-field"><label>Event Date</label><input type="date" id="cDate"/></div>
+      <div class="form-field"><label>Guest Count</label>
+        <select id="cGuests">
+          <option value="">Estimated guests</option>
+          <option>Under 25</option>
+          <option>25 – 50</option>
+          <option>50 – 100</option>
+          <option>100 – 200</option>
+          <option>200+</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="form-field"><label>Event Type</label>
+        <select id="cType">
+          <option value="">Select event type</option>
+          <option>Backyard Cookout</option>
+          <option>Birthday Party</option>
+          <option>Wedding / Reception</option>
+          <option>Corporate Event</option>
+          <option>Church / Community Event</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-field"><label>Location / City</label><input type="text" id="cCity" placeholder="City or venue name"/></div>
+    </div>
+    <div class="form-grid full">
+      <div class="form-field"><label>What are you looking for?</label><textarea id="cMessage" placeholder="Tell us about your event — menu preferences, special requests, setup needs..."></textarea></div>
+    </div>
+    <button type="button" class="form-submit" onclick="submitCatering(event)">Send Catering Request</button>
+    <p style="font-size:12px;color:var(--smoke);margin-top:12px;text-align:center;">
+      Or email us directly: <a href="/cdn-cgi/l/email-protection#d1b6b4bea3b6b8b0a3b8b3a2b0bfb5b2b0a5b4a3b8bfb691b6bcb0b8bdffb2bebc" style="color:var(--ember);"><span class="__cf_email__" data-cfemail="1473717b66737d75667d7667757a7077756071667d7a73547379757d783a777b79">[email&#160;protected]</span></a>
+    </p>
+  </div>
+</section>
+
+<!-- ── ORDER ONLINE ── -->
+<section id="order">
+  <h2 class="order-title">Order Fresh.<br>Pick Up Hot.</h2>
+  <p class="order-sub">Call ahead to place your order — we'll have it hot and ready when you arrive.</p>
+  <div class="order-buttons">
+    <a href="tel:6169287395" class="order-btn order-btn-white">
+      📞 Call (616) 928-7395
+    </a>
+    <a href="mailto:georgiaribsandcatering@gmail.com" class="order-btn order-btn-outline">
+      ✉ Email Us
+    </a>
+  </div>
+  <div class="doordash-notice">
+    <span class="doordash-badge">Coming Soon</span>
+    DoorDash delivery launching soon — follow us for the announcement!
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="reveal">
+    <div class="section-tag">Come Find Us</div>
+    <h2 class="section-title">Find the <em>Smoke</em></h2>
+    <p class="section-lead">We're a mobile food truck — follow us on social media for our current location and schedule.</p>
+  </div>
+  <div class="contact-grid reveal">
+    <div>
+      <div class="contact-block">
+        <div class="contact-label">Phone</div>
+        <div class="contact-value"><a href="tel:6169287395">(616) 928-7395</a></div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-label">Email</div>
+        <div class="contact-value"><a href="/cdn-cgi/l/email-protection#2a4d4f45584d434b584348594b444e494b5e4f5843444d6a4d474b434604494547"><span class="__cf_email__" data-cfemail="ff989a908d98969e8d969d8c9e919b9c9e8b9a8d969198bf98929e9693d19c9092">[email&#160;protected]</span></a></div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-label">Payment</div>
+        <div class="contact-value">Cash · Cash App: <strong style="color:var(--ember);">$KatrinaSeldon31</strong></div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-label">Order Ahead</div>
+        <div class="contact-value"><a href="tel:6169287395">(616) 928-7395</a></div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-label">Follow the Truck</div>
+        <div class="social-links">
+          <a href="#" class="social-link">📘 Facebook</a>
+          <a href="#" class="social-link">📷 Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="map-box">
+      <img src="food-truck.png" alt="Georgia Ribs food truck" class="truck-photo"/>
+      <p>We're on the move! Check our Facebook and Instagram pages for daily location updates, specials, and hours. Can't find us? Give us a call — we'll always pick up.</p>
+      <a href="tel:6169287395" class="btn-primary" style="display:inline-block;">Call Now — (616) 928-7395</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="logo.png" alt="Georgia Ribs & Catering"/>
+      <div class="footer-logo-text">
+        Georgia Ribs
+        <span>& Catering</span>
+      </div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#about">Our Story</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#catering">Catering</a></li>
+      <li><a href="#order">Order Online</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    &copy; <span id="footerYear"></span> Georgia Ribs & Catering · The Sweet Taste of the South · georgiaribsandcatering.org
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ── NAV ──
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// ── FOOTER YEAR ──
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+// ── MENU TABS ──
+function switchMenu(name, btn) {
+  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── CATERING FORM ──
+async function submitCatering(e) {
+  const btn = e.target;
+  const first = document.getElementById('cFirst').value.trim();
+  const last = document.getElementById('cLast').value.trim();
+  const phone = document.getElementById('cPhone').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+
+  if (!first || !last || (!phone && !email)) {
+    btn.textContent = '⚠ Please fill in your name and contact info';
+    btn.style.background = '#8b1a1a';
+    setTimeout(() => { btn.textContent = 'Send Catering Request'; btn.style.background = ''; }, 2800);
+    return;
+  }
+
+  btn.textContent = 'Sending...'; btn.disabled = true;
+
+  try {
+    const res = await fetch('https://formspree.io/f/mbdavzwv', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: `${first} ${last}`,
+        phone: phone,
+        email: email,
+        event_date: document.getElementById('cDate').value,
+        guest_count: document.getElementById('cGuests').value,
+        event_type: document.getElementById('cType').value,
+        location: document.getElementById('cCity').value,
+        message: document.getElementById('cMessage').value
+      })
+    });
+
+    if (res.ok) {
+      btn.textContent = "✓ Request Sent — We'll Be In Touch!";
+      btn.style.background = '#2d6a4f';
+      btn.style.color = '#fff';
+      ['cFirst','cLast','cPhone','cEmail','cDate','cGuests','cType','cCity','cMessage']
+        .forEach(id => { document.getElementById(id).value = ''; });
+    } else {
+      throw new Error('Form error');
+    }
+  } catch(err) {
+    btn.textContent = 'Error — Please Call (616) 928-7395';
+    btn.style.background = '#8b1a1a';
+    btn.style.color = '#fff';
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>
