@@ -825,14 +825,14 @@ footer {
       </div>
     </div>
     <div class="reveal">
-      <img src="food-smoked-ribs2.png" alt="Georgia Ribs catering" style="width:100%;height:380px;object-fit:cover;display:block;filter:brightness(0.85) saturate(1.1);"/>
+      <img src="food-smoker-team.jpg" alt="Georgia Ribs catering team" style="width:100%;height:380px;object-fit:cover;display:block;filter:brightness(0.85) saturate(1.1);"/>
     </div>
   </div>
 
   <div class="reveal">
     <div class="section-tag">Catering Menu</div>
     <h3 style="font-family:'Playfair Display',serif;font-weight:700;font-size:32px;color:var(--cream);margin-bottom:8px;">Party Trays & <em style="color:var(--ember);">Packs</em></h3>
-    <p class="section-lead">Contact us to discuss your event needs and get a custom quote.</p>
+    <p class="section-lead">All pricing is per-person or per-tray. Contact us for custom quotes on larger events.</p>
   </div>
 
   <div class="catering-menu-grid reveal">
@@ -959,7 +959,7 @@ footer {
     <a href="tel:6169287395" class="order-btn order-btn-white">
       📞 Call (616) 928-7395
     </a>
-    <a href="/cdn-cgi/l/email-protection#cfa8aaa0bda8a6aebda6adbcaea1abacaebbaabda6a1a88fa8a2aea6a3e1aca0a2" class="order-btn order-btn-outline">
+    <a href="mailto:georgiaribsandcatering@gmail.com" class="order-btn order-btn-outline">
       ✉ Email Us
     </a>
   </div>
@@ -1033,7 +1033,7 @@ footer {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── NAV ──
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
@@ -1103,4 +1103,12 @@ async function submitCatering(e) {
       throw new Error('Form error');
     }
   } catch(err) {
-    btn.textContent = 'Er
+    btn.textContent = 'Error — Please Call (616) 928-7395';
+    btn.style.background = '#8b1a1a';
+    btn.style.color = '#fff';
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>
