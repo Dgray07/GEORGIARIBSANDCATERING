@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Georgia Ribs & Catering — The Sweet Taste of the South</title>
 <meta name="description" content="Georgia Ribs & Catering — Slow-smoked BBQ, homemade sides, and full-service catering. Order ahead or book us for your next event."/>
+<link rel="icon" href="logo.png" type="image/png"/>
+<style>
+/* Fallback: if JS hasn't run yet, reveal after 1s */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { animation: revealFallback 0.01s 1.5s ease forwards; }
+}
+@keyframes revealFallback { to { opacity: 1; transform: none; } }
+</style>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Chivo:ital,wght@0,300;0,400;0,700;1,300&family=Bebas+Neue&display=swap" rel="stylesheet"/>
 <style>
 :root {
@@ -946,7 +954,7 @@ footer {
     </div>
     <button type="button" class="form-submit" onclick="submitCatering(event)">Send Catering Request</button>
     <p style="font-size:12px;color:var(--smoke);margin-top:12px;text-align:center;">
-      Or email us directly: <a href="/cdn-cgi/l/email-protection#d1b6b4bea3b6b8b0a3b8b3a2b0bfb5b2b0a5b4a3b8bfb691b6bcb0b8bdffb2bebc" style="color:var(--ember);"><span class="__cf_email__" data-cfemail="1473717b66737d75667d7667757a7077756071667d7a73547379757d783a777b79">[email&#160;protected]</span></a>
+      Or email us directly: <a href="mailto:georgiaribsandcatering@gmail.com" style="color:var(--ember);">georgiaribsandcatering@gmail.com</a>
     </p>
   </div>
 </section>
@@ -959,7 +967,7 @@ footer {
     <a href="tel:6169287395" class="order-btn order-btn-white">
       📞 Call (616) 928-7395
     </a>
-    <a href="/cdn-cgi/l/email-protection#cfa8aaa0bda8a6aebda6adbcaea1abacaebbaabda6a1a88fa8a2aea6a3e1aca0a2" class="order-btn order-btn-outline">
+    <a href="mailto:georgiaribsandcatering@gmail.com" class="order-btn order-btn-outline">
       ✉ Email Us
     </a>
   </div>
@@ -984,7 +992,7 @@ footer {
       </div>
       <div class="contact-block">
         <div class="contact-label">Email</div>
-        <div class="contact-value"><a href="/cdn-cgi/l/email-protection#2a4d4f45584d434b584348594b444e494b5e4f5843444d6a4d474b434604494547"><span class="__cf_email__" data-cfemail="ff989a908d98969e8d969d8c9e919b9c9e8b9a8d969198bf98929e9693d19c9092">[email&#160;protected]</span></a></div>
+        <div class="contact-value"><a href="mailto:georgiaribsandcatering@gmail.com">georgiaribsandcatering@gmail.com</a></div>
       </div>
       <div class="contact-block">
         <div class="contact-label">Payment</div>
@@ -1033,7 +1041,7 @@ footer {
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── NAV ──
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
@@ -1049,8 +1057,10 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
 revealEls.forEach(el => observer.observe(el));
+// Fallback: force all reveals visible after 800ms in case observer fails
+setTimeout(() => { revealEls.forEach(el => el.classList.add('visible')); }, 800);
 
 // ── MENU TABS ──
 function switchMenu(name, btn) {
